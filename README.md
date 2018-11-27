@@ -1,21 +1,81 @@
 # Basilisk
 
-**TODO: Add description**
+### A fast aftermarket server for [Cockatrice](https://github.com/Cockatrice/Cockatrice)
 
-## Installation
+# Implementation Status
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `basilisk` to your list of dependencies in `mix.exs`:
+- [ ] Servatrice Feature Parity
+  - [ ] Client Connections
+  - [ ] Server Info
+  - [ ] Accounts
+  - [ ] Password Reset
+  - [ ] Email Validation
+  - [ ] Roles
+  - [ ] Rooms
+  - [ ] Games
+  - [ ] Chat
+  - [ ] Client Listings
+  - [ ] Buddies/Ignores
+  - [ ] Deck Storage
+  - [ ] Replays
+  - [ ] Admin Tools
+  - [ ] Moderations Tools
+  - [ ] Server Logs
+  - [ ] Audit Stats
+- [ ] Planned Server Features
+  - [ ] Fancy Custom Stats
+    - [ ] Deck Info
+    - [ ] Game Frequency
+    - [ ] Other Stuff
+  - [ ] Web Accessible Deck Storage
+  - [ ] Multi-Server
+  - [ ] Suspend To Database
+  - [ ] Deck Validation
+  - [ ] Rules Plugins
 
-```elixir
-def deps do
-  [
-    {:basilisk, "~> 0.1.0"}
-  ]
-end
+# Building
+
+(This assumes you have already have elixir/mix/hex set up)
+
+### Getting the repo ready
+
+```sh
+# clone and enter the repo
+git clone https://github.com/skwerlman/basilisk && cd basilisk
+# fetch and compile the dependencies
+mix deps.get && mix deps.compile
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/basilisk](https://hexdocs.pm/basilisk).
+### Building Protobufs
 
+Make sure:
+- `protoc` is installed and available in your path
+- your escripts directory is in your path (`~/.mix/escripts` on linux)
+
+```sh
+# install the elixir protobuf compiler
+mix escript.install protobuf
+# compile the protobufs
+protoc -I proto_buf --elixir_out=./lib/proto_buf/ proto_buf/*.proto
+```
+
+### Building basilisk
+
+```sh
+mix compile
+```
+
+### Testing
+
+```sh
+# Run the tests
+mix test
+# Run credo
+mix credo
+# Run dialyxir
+mix dialyzer
+```
+
+### Building a release
+
+TODO
