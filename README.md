@@ -2,6 +2,10 @@
 
 ### A fast aftermarket server for [Cockatrice](https://github.com/Cockatrice/Cockatrice)
 
+# In Development!
+
+See the [design wiki page](https://github.com/skwerlman/basilisk/wiki/Design) if you're interested in helping
+
 # Implementation Status
 
 - [ ] Servatrice Feature Parity
