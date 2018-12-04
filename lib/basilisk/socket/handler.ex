@@ -29,8 +29,8 @@ defmodule Basilisk.Socket.Handler do
 
     server_id =
       %Event_ServerIdentification{
-        server_name: "Basilisk",
-        server_version: "0.1.0",
+        server_name: Basilisk.server_name(),
+        server_version: "basilisk-v#{Basilisk.version()}",
         protocol_version: @protocol_version
       }
       |> Protobuf.encode()

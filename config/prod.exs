@@ -1,6 +1,7 @@
 use Mix.Config
 
 config :basilisk,
+  server_name: "My Basilisk Server",
   port: 4747,
   connection_workers: 100
 

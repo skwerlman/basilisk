@@ -3,16 +3,14 @@ defmodule Basilisk do
   Documentation for Basilisk.
   """
 
-  @doc """
-  Hello world.
+  @server_name Application.get_env(:basilisk, :server_name, "My Basilisk Server")
+  @version Mix.Project.config()[:version]
 
-  ## Examples
+  def server_name do
+    @server_name
+  end
 
-      iex> Basilisk.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def version do
+    @version
   end
 end

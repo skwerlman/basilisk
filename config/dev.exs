@@ -7,6 +7,7 @@ use Mix.Config
 # Using them in production is VERY UNSAFE
 
 config :basilisk,
+  server_name: "Fancy Dev Server",
   port: 4747,
   connection_workers: 100
 
