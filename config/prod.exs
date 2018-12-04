@@ -1,5 +1,29 @@
 use Mix.Config
 
+config :basilisk,
+  port: 4747,
+  connection_workers: 100
+
+# ==== DATABASE ==============================================================
+# Configure the database in prod.secret.exs
+
+# ==== LOGGING ===============================================================
+
+log_folder = "log"
+log_file_format = "$time $metadata[$level]$levelpad $message\n"
+log_console_format = "$time [$level]$levelpad $message\n"
+
+basilisk_log_name = "basilisk.prod.log"
+basilisk_log_level = :info
+
+ecto_log_name = "ecto.prod.log"
+ecto_log_level = :warn
+
+misc_log_name = "misc.prod.log"
+misc_log_level = :warn
+
+# ==== HASHING ===============================================================
+#
 # YOU MUST CHANGE THESE
 #
 # Set parallelism to double the number of cores on your machine
@@ -18,9 +42,56 @@ config :argon2_elixir,
   m_cost: 18,
   parallelism: 16
 
+# ==== OTHER STUFF ===========================================================
 # You shouldn't need to change anything below here
+
+config :logger,
+  backends: [
+    {FlexLogger, :basilisk_file_logger},
+    {FlexLogger, :ecto_file_logger},
+    {FlexLogger, :misc_file_logger},
+    {FlexLogger, :console_logger}
+  ]
+
+config :logger, :basilisk_file_logger,
+  logger: LoggerFileBackend,
+  default_level: :off,
+  level_config: [
+    [application: :basilisk, module: Basilisk, level: basilisk_log_level]
+  ],
+  metadata: [:application, :module, :function],
+  format: log_file_format,
+  path: "#{log_folder}/#{basilisk_log_name}"
+
+config :logger, :ecto_file_logger,
+  logger: LoggerFileBackend,
+  default_level: :off,
+  level_config: [
+    [application: :ecto, module: Ecto, level: ecto_log_level]
+  ],
+  metadata: [:application, :module, :function],
+  format: log_file_format,
+  path: "#{log_folder}/#{ecto_log_name}"
+
+config :logger, :misc_file_logger,
+  logger: LoggerFileBackend,
+  default_level: misc_log_level,
+  metadata: [:application, :module, :function],
+  format: log_file_format,
+  path: "#{log_folder}/#{misc_log_name}"
+
+config :logger, :console_logger,
+  logger: :console,
+  default_level: misc_log_level,
+  level_config: [
+    [application: :basilisk, module: Basilisk, level: basilisk_log_level]
+  ],
+  format: log_console_format
 
 config :argon2_elixir,
   argon2_type: 2
+
+config :basilisk,
+  ecto_repos: [Basilisk.Repo]
 
 import_config "prod.secret.exs"

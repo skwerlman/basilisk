@@ -47,8 +47,10 @@ defmodule Basilisk.MixProject do
     [
       {:argon2_elixir, "~> 1.3"},
       {:comeonin, "~> 4.1"},
-      {:ecto, "~> 3.0"},
       {:ecto_sql, "~> 3.0"},
+      {:ecto, "~> 3.0"},
+      {:flex_logger, "~> 0.2"},
+      {:logger_file_backend, "~> 0.0"},
       {:postgrex, ">= 0.0.0"},
       {:protobuf, "~> 0.5"},
       #####
