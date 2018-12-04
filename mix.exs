@@ -2,6 +2,7 @@ defmodule Basilisk.MixProject do
   use Mix.Project
 
   @version "0.1.0"
+  @repo "https://github.com/skwerlman/basilisk"
 
   def project do
     [
@@ -13,6 +14,7 @@ defmodule Basilisk.MixProject do
       preferred_cli_env: [coveralls: :test, test: :test],
       aliases: aliases(),
       deps: deps(),
+      docs: docs(),
       dialyzer: dialyzer(),
       package: package()
     ]
@@ -53,6 +55,17 @@ defmodule Basilisk.MixProject do
       {:distillery, "~> 2.0", runtime: false},
       {:ex_doc, "~> 0.19", runtime: false, only: :dev},
       {:excoveralls, "~> 0.10", runtime: false, only: :test}
+    ]
+  end
+
+  defp docs do
+    [
+      main: "readme",
+      # source_ref: "v#{@version}",
+      source_url: @repo,
+      extras: [
+        "README.md": [title: "README"]
+      ]
     ]
   end
 
@@ -99,7 +112,7 @@ defmodule Basilisk.MixProject do
 
   defp links do
     %{
-      "Github" => "https://github.com/skwerlman/basilisk",
+      "Github" => @repo,
       "Cockatrice Wiki" => "https://github.com/cockatrice/cockatrice/wiki"
     }
   end

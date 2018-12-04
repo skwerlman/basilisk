@@ -46,28 +46,8 @@ See the [design wiki page](https://github.com/skwerlman/basilisk/wiki/Design) if
 ```sh
 # clone and enter the repo
 git clone https://github.com/skwerlman/basilisk && cd basilisk
-# fetch and compile the dependencies
-mix deps.get && mix deps.compile
-```
-
-### Building Protobufs
-
-Make sure:
-- google's `protoc` is installed and available in your path
-- your escripts directory is in your path (`~/.mix/escripts` on linux)
-
-```sh
-# install the elixir protobuf compiler
-mix protoc-setup
-# compile the protobufs
-mix protoc
-```
-
-### Building basilisk
-
-```sh
-# compile is a mix alias to `mix do protoc, compile`
-mix compile
+# install hooks, the elixir protobuf compiler, fetch deps, and compiles the project
+mix setup
 ```
 
 ### Testing
