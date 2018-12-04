@@ -45,6 +45,8 @@ defmodule Basilisk.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:argon2_elixir, "~> 1.3"},
+      {:comeonin, "~> 4.1"},
       {:ecto, "~> 3.0"},
       {:ecto_sql, "~> 3.0"},
       {:postgrex, ">= 0.0.0"},

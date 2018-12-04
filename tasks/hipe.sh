@@ -3,7 +3,7 @@
 _HIPE_OPTIONS="[native,{hipe,[o3]}]"
 
 MAIN_APP="basilisk"
-NO_HIPE=("enacl" "credo" "dialyxir" "distillery" "excoveralls" "ex_doc")
+NO_HIPE=("argon2_elixir" "credo" "dialyxir" "distillery" "excoveralls" "ex_doc")
 
 # default to dev env
 _=${MIX_ENV:=dev}
