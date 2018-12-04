@@ -8,6 +8,6 @@ defmodule Event_DrawCards do
         }
   defstruct [:number, :cards]
 
-  field :number, 1, optional: true, type: :sint32
-  field :cards, 2, repeated: true, type: ServerInfo_Card
+  field(:number, 1, optional: true, type: :sint32)
+  field(:cards, 2, repeated: true, type: ServerInfo_Card)
 end

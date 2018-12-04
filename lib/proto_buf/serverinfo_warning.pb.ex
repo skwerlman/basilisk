@@ -10,8 +10,8 @@ defmodule ServerInfo_Warning do
         }
   defstruct [:user_name, :admin_name, :reason, :time_of]
 
-  field :user_name, 1, optional: true, type: :string
-  field :admin_name, 2, optional: true, type: :string
-  field :reason, 3, optional: true, type: :string
-  field :time_of, 4, optional: true, type: :string
+  field(:user_name, 1, optional: true, type: :string)
+  field(:admin_name, 2, optional: true, type: :string)
+  field(:reason, 3, optional: true, type: :string)
+  field(:time_of, 4, optional: true, type: :string)
 end

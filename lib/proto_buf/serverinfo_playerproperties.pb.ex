@@ -23,12 +23,12 @@ defmodule ServerInfo_PlayerProperties do
     :sideboard_locked
   ]
 
-  field :player_id, 1, optional: true, type: :sint32
-  field :user_info, 2, optional: true, type: ServerInfo_User
-  field :spectator, 3, optional: true, type: :bool
-  field :conceded, 4, optional: true, type: :bool
-  field :ready_start, 5, optional: true, type: :bool
-  field :deck_hash, 6, optional: true, type: :string
-  field :ping_seconds, 7, optional: true, type: :sint32
-  field :sideboard_locked, 8, optional: true, type: :bool
+  field(:player_id, 1, optional: true, type: :sint32)
+  field(:user_info, 2, optional: true, type: ServerInfo_User)
+  field(:spectator, 3, optional: true, type: :bool)
+  field(:conceded, 4, optional: true, type: :bool)
+  field(:ready_start, 5, optional: true, type: :bool)
+  field(:deck_hash, 6, optional: true, type: :string)
+  field(:ping_seconds, 7, optional: true, type: :sint32)
+  field(:sideboard_locked, 8, optional: true, type: :bool)
 end

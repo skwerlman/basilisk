@@ -7,5 +7,5 @@ defmodule Event_UserJoined do
         }
   defstruct [:user_info]
 
-  field :user_info, 1, optional: true, type: ServerInfo_User
+  field(:user_info, 1, optional: true, type: ServerInfo_User)
 end

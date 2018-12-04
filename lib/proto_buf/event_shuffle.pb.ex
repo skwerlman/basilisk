@@ -7,5 +7,5 @@ defmodule Event_Shuffle do
         }
   defstruct [:zone_name]
 
-  field :zone_name, 1, optional: true, type: :string
+  field(:zone_name, 1, optional: true, type: :string)
 end

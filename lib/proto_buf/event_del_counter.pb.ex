@@ -7,5 +7,5 @@ defmodule Event_DelCounter do
         }
   defstruct [:counter_id]
 
-  field :counter_id, 1, optional: true, type: :sint32
+  field(:counter_id, 1, optional: true, type: :sint32)
 end

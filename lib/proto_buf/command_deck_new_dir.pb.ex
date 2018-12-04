@@ -8,6 +8,6 @@ defmodule Command_DeckNewDir do
         }
   defstruct [:path, :dir_name]
 
-  field :path, 1, optional: true, type: :string
-  field :dir_name, 2, optional: true, type: :string
+  field(:path, 1, optional: true, type: :string)
+  field(:dir_name, 2, optional: true, type: :string)
 end

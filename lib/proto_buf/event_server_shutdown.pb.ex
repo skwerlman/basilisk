@@ -8,6 +8,6 @@ defmodule Event_ServerShutdown do
         }
   defstruct [:reason, :minutes]
 
-  field :reason, 1, optional: true, type: :string
-  field :minutes, 2, optional: true, type: :uint32
+  field(:reason, 1, optional: true, type: :string)
+  field(:minutes, 2, optional: true, type: :uint32)
 end

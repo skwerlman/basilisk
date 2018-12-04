@@ -7,5 +7,5 @@ defmodule Response_WarnHistory do
         }
   defstruct [:warn_list]
 
-  field :warn_list, 1, repeated: true, type: ServerInfo_Warning
+  field(:warn_list, 1, repeated: true, type: ServerInfo_Warning)
 end

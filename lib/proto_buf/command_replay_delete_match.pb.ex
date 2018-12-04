@@ -7,5 +7,5 @@ defmodule Command_ReplayDeleteMatch do
         }
   defstruct [:game_id]
 
-  field :game_id, 1, optional: true, type: :sint32, default: -1
+  field(:game_id, 1, optional: true, type: :sint32, default: -1)
 end

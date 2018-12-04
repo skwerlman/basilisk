@@ -8,6 +8,6 @@ defmodule Event_AddToList do
         }
   defstruct [:list_name, :user_info]
 
-  field :list_name, 1, optional: true, type: :string
-  field :user_info, 2, optional: true, type: ServerInfo_User
+  field(:list_name, 1, optional: true, type: :string)
+  field(:user_info, 2, optional: true, type: ServerInfo_User)
 end

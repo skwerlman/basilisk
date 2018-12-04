@@ -8,6 +8,6 @@ defmodule ServerInfo_PlayerPing do
         }
   defstruct [:player_id, :ping_time]
 
-  field :player_id, 1, optional: true, type: :sint32
-  field :ping_time, 2, optional: true, type: :sint32
+  field(:player_id, 1, optional: true, type: :sint32)
+  field(:ping_time, 2, optional: true, type: :sint32)
 end

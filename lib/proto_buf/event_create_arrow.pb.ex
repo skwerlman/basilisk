@@ -7,5 +7,5 @@ defmodule Event_CreateArrow do
         }
   defstruct [:arrow_info]
 
-  field :arrow_info, 1, optional: true, type: ServerInfo_Arrow
+  field(:arrow_info, 1, optional: true, type: ServerInfo_Arrow)
 end

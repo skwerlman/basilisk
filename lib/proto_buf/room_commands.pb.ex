@@ -10,10 +10,10 @@ defmodule RoomCommand.RoomCommandType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto2
 
-  field :LEAVE_ROOM, 1000
-  field :ROOM_SAY, 1001
-  field :CREATE_GAME, 1002
-  field :JOIN_GAME, 1003
+  field(:LEAVE_ROOM, 1000)
+  field(:ROOM_SAY, 1001)
+  field(:CREATE_GAME, 1002)
+  field(:JOIN_GAME, 1003)
 end
 
 defmodule Command_LeaveRoom do
@@ -33,7 +33,7 @@ defmodule Command_RoomSay do
         }
   defstruct [:message]
 
-  field :message, 1, optional: true, type: :string
+  field(:message, 1, optional: true, type: :string)
 end
 
 defmodule Command_CreateGame do
@@ -65,16 +65,16 @@ defmodule Command_CreateGame do
     :game_type_ids
   ]
 
-  field :description, 1, optional: true, type: :string
-  field :password, 2, optional: true, type: :string
-  field :max_players, 3, optional: true, type: :uint32
-  field :only_buddies, 4, optional: true, type: :bool
-  field :only_registered, 5, optional: true, type: :bool
-  field :spectators_allowed, 6, optional: true, type: :bool
-  field :spectators_need_password, 7, optional: true, type: :bool
-  field :spectators_can_talk, 8, optional: true, type: :bool
-  field :spectators_see_everything, 9, optional: true, type: :bool
-  field :game_type_ids, 10, repeated: true, type: :uint32
+  field(:description, 1, optional: true, type: :string)
+  field(:password, 2, optional: true, type: :string)
+  field(:max_players, 3, optional: true, type: :uint32)
+  field(:only_buddies, 4, optional: true, type: :bool)
+  field(:only_registered, 5, optional: true, type: :bool)
+  field(:spectators_allowed, 6, optional: true, type: :bool)
+  field(:spectators_need_password, 7, optional: true, type: :bool)
+  field(:spectators_can_talk, 8, optional: true, type: :bool)
+  field(:spectators_see_everything, 9, optional: true, type: :bool)
+  field(:game_type_ids, 10, repeated: true, type: :uint32)
 end
 
 defmodule Command_JoinGame do
@@ -89,8 +89,8 @@ defmodule Command_JoinGame do
         }
   defstruct [:game_id, :password, :spectator, :override_restrictions]
 
-  field :game_id, 1, optional: true, type: :sint32, default: -1
-  field :password, 2, optional: true, type: :string
-  field :spectator, 3, optional: true, type: :bool
-  field :override_restrictions, 4, optional: true, type: :bool
+  field(:game_id, 1, optional: true, type: :sint32, default: -1)
+  field(:password, 2, optional: true, type: :string)
+  field(:spectator, 3, optional: true, type: :bool)
+  field(:override_restrictions, 4, optional: true, type: :bool)
 end

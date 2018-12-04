@@ -7,5 +7,5 @@ defmodule Context_Mulligan do
         }
   defstruct [:number]
 
-  field :number, 1, optional: true, type: :uint32
+  field(:number, 1, optional: true, type: :uint32)
 end

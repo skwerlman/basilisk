@@ -7,5 +7,5 @@ defmodule Response_ForgotPasswordRequest do
         }
   defstruct [:challenge_email]
 
-  field :challenge_email, 1, optional: true, type: :bool
+  field(:challenge_email, 1, optional: true, type: :bool)
 end

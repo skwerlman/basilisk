@@ -9,7 +9,7 @@ defmodule Command_DeckUpload do
         }
   defstruct [:path, :deck_id, :deck_list]
 
-  field :path, 1, optional: true, type: :string
-  field :deck_id, 2, optional: true, type: :uint32
-  field :deck_list, 3, optional: true, type: :string
+  field(:path, 1, optional: true, type: :string)
+  field(:deck_id, 2, optional: true, type: :uint32)
+  field(:deck_list, 3, optional: true, type: :string)
 end

@@ -7,5 +7,5 @@ defmodule Response_ReplayDownload do
         }
   defstruct [:replay_data]
 
-  field :replay_data, 1, optional: true, type: :bytes
+  field(:replay_data, 1, optional: true, type: :bytes)
 end

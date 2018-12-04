@@ -7,5 +7,5 @@ defmodule Event_SetActivePlayer do
         }
   defstruct [:active_player_id]
 
-  field :active_player_id, 1, optional: true, type: :sint32
+  field(:active_player_id, 1, optional: true, type: :sint32)
 end

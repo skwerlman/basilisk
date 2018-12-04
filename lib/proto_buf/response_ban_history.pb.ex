@@ -7,5 +7,5 @@ defmodule Response_BanHistory do
         }
   defstruct [:ban_list]
 
-  field :ban_list, 1, repeated: true, type: ServerInfo_Ban
+  field(:ban_list, 1, repeated: true, type: ServerInfo_Ban)
 end

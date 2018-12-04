@@ -7,5 +7,5 @@ defmodule Command_RollDie do
         }
   defstruct [:sides]
 
-  field :sides, 1, optional: true, type: :uint32
+  field(:sides, 1, optional: true, type: :uint32)
 end

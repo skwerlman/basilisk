@@ -8,6 +8,6 @@ defmodule Command_SetCounter do
         }
   defstruct [:counter_id, :value]
 
-  field :counter_id, 1, optional: true, type: :sint32, default: -1
-  field :value, 2, optional: true, type: :sint32
+  field(:counter_id, 1, optional: true, type: :sint32, default: -1)
+  field(:value, 2, optional: true, type: :sint32)
 end

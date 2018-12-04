@@ -8,6 +8,6 @@ defmodule Command_StopDumpZone do
         }
   defstruct [:player_id, :zone_name]
 
-  field :player_id, 1, optional: true, type: :sint32
-  field :zone_name, 2, optional: true, type: :string
+  field(:player_id, 1, optional: true, type: :sint32)
+  field(:zone_name, 2, optional: true, type: :string)
 end

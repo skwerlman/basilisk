@@ -29,15 +29,15 @@ defmodule ServerInfo_Room do
     :privilegelevel
   ]
 
-  field :room_id, 1, optional: true, type: :sint32
-  field :name, 2, optional: true, type: :string
-  field :description, 3, optional: true, type: :string
-  field :game_count, 4, optional: true, type: :uint32
-  field :player_count, 5, optional: true, type: :uint32
-  field :auto_join, 6, optional: true, type: :bool
-  field :game_list, 7, repeated: true, type: ServerInfo_Game
-  field :user_list, 8, repeated: true, type: ServerInfo_User
-  field :gametype_list, 9, repeated: true, type: ServerInfo_GameType
-  field :permissionlevel, 10, optional: true, type: :string
-  field :privilegelevel, 11, optional: true, type: :string
+  field(:room_id, 1, optional: true, type: :sint32)
+  field(:name, 2, optional: true, type: :string)
+  field(:description, 3, optional: true, type: :string)
+  field(:game_count, 4, optional: true, type: :uint32)
+  field(:player_count, 5, optional: true, type: :uint32)
+  field(:auto_join, 6, optional: true, type: :bool)
+  field(:game_list, 7, repeated: true, type: ServerInfo_Game)
+  field(:user_list, 8, repeated: true, type: ServerInfo_User)
+  field(:gametype_list, 9, repeated: true, type: ServerInfo_GameType)
+  field(:permissionlevel, 10, optional: true, type: :string)
+  field(:privilegelevel, 11, optional: true, type: :string)
 end

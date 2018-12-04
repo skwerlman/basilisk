@@ -7,5 +7,5 @@ defmodule Event_UserLeft do
         }
   defstruct [:name]
 
-  field :name, 1, optional: true, type: :string
+  field(:name, 1, optional: true, type: :string)
 end

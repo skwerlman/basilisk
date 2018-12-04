@@ -11,9 +11,9 @@ defmodule Event_RevealCards do
         }
   defstruct [:zone_name, :card_id, :other_player_id, :cards, :grant_write_access]
 
-  field :zone_name, 1, optional: true, type: :string
-  field :card_id, 2, optional: true, type: :sint32, default: -1
-  field :other_player_id, 3, optional: true, type: :sint32, default: -1
-  field :cards, 4, repeated: true, type: ServerInfo_Card
-  field :grant_write_access, 5, optional: true, type: :bool
+  field(:zone_name, 1, optional: true, type: :string)
+  field(:card_id, 2, optional: true, type: :sint32, default: -1)
+  field(:other_player_id, 3, optional: true, type: :sint32, default: -1)
+  field(:cards, 4, repeated: true, type: ServerInfo_Card)
+  field(:grant_write_access, 5, optional: true, type: :bool)
 end

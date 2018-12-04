@@ -11,9 +11,9 @@ defmodule Event_GameStateChanged do
         }
   defstruct [:player_list, :game_started, :active_player_id, :active_phase, :seconds_elapsed]
 
-  field :player_list, 1, repeated: true, type: ServerInfo_Player
-  field :game_started, 2, optional: true, type: :bool
-  field :active_player_id, 3, optional: true, type: :sint32
-  field :active_phase, 4, optional: true, type: :sint32
-  field :seconds_elapsed, 5, optional: true, type: :uint32
+  field(:player_list, 1, repeated: true, type: ServerInfo_Player)
+  field(:game_started, 2, optional: true, type: :bool)
+  field(:active_player_id, 3, optional: true, type: :sint32)
+  field(:active_phase, 4, optional: true, type: :sint32)
+  field(:seconds_elapsed, 5, optional: true, type: :uint32)
 end

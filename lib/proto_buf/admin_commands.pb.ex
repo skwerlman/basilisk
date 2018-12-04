@@ -10,10 +10,10 @@ defmodule AdminCommand.AdminCommandType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto2
 
-  field :UPDATE_SERVER_MESSAGE, 1000
-  field :SHUTDOWN_SERVER, 1001
-  field :RELOAD_CONFIG, 1002
-  field :ADJUST_MOD, 1003
+  field(:UPDATE_SERVER_MESSAGE, 1000)
+  field(:SHUTDOWN_SERVER, 1001)
+  field(:RELOAD_CONFIG, 1002)
+  field(:ADJUST_MOD, 1003)
 end
 
 defmodule Command_UpdateServerMessage do
@@ -34,8 +34,8 @@ defmodule Command_ShutdownServer do
         }
   defstruct [:reason, :minutes]
 
-  field :reason, 1, optional: true, type: :string
-  field :minutes, 2, optional: true, type: :uint32
+  field(:reason, 1, optional: true, type: :string)
+  field(:minutes, 2, optional: true, type: :uint32)
 end
 
 defmodule Command_ReloadConfig do
@@ -56,6 +56,6 @@ defmodule Command_AdjustMod do
         }
   defstruct [:user_name, :should_be_mod]
 
-  field :user_name, 1, required: true, type: :string
-  field :should_be_mod, 2, required: true, type: :bool
+  field(:user_name, 1, required: true, type: :string)
+  field(:should_be_mod, 2, required: true, type: :bool)
 end

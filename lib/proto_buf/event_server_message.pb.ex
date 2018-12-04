@@ -7,5 +7,5 @@ defmodule Event_ServerMessage do
         }
   defstruct [:message]
 
-  field :message, 1, optional: true, type: :string
+  field(:message, 1, optional: true, type: :string)
 end

@@ -21,11 +21,11 @@ defmodule Command_CreateArrow do
     :arrow_color
   ]
 
-  field :start_player_id, 1, optional: true, type: :sint32, default: -1
-  field :start_zone, 2, optional: true, type: :string
-  field :start_card_id, 3, optional: true, type: :sint32, default: -1
-  field :target_player_id, 4, optional: true, type: :sint32, default: -1
-  field :target_zone, 5, optional: true, type: :string
-  field :target_card_id, 6, optional: true, type: :sint32, default: -1
-  field :arrow_color, 7, optional: true, type: Color
+  field(:start_player_id, 1, optional: true, type: :sint32, default: -1)
+  field(:start_zone, 2, optional: true, type: :string)
+  field(:start_card_id, 3, optional: true, type: :sint32, default: -1)
+  field(:target_player_id, 4, optional: true, type: :sint32, default: -1)
+  field(:target_zone, 5, optional: true, type: :string)
+  field(:target_card_id, 6, optional: true, type: :sint32, default: -1)
+  field(:arrow_color, 7, optional: true, type: Color)
 end

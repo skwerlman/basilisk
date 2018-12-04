@@ -27,14 +27,14 @@ defmodule Command_CreateToken do
     :target_card_id
   ]
 
-  field :zone, 1, optional: true, type: :string
-  field :card_name, 2, optional: true, type: :string
-  field :color, 3, optional: true, type: :string
-  field :pt, 4, optional: true, type: :string
-  field :annotation, 5, optional: true, type: :string
-  field :destroy_on_zone_change, 6, optional: true, type: :bool
-  field :x, 7, optional: true, type: :sint32
-  field :y, 8, optional: true, type: :sint32
-  field :target_zone, 9, optional: true, type: :string
-  field :target_card_id, 10, optional: true, type: :sint32, default: -1
+  field(:zone, 1, optional: true, type: :string)
+  field(:card_name, 2, optional: true, type: :string)
+  field(:color, 3, optional: true, type: :string)
+  field(:pt, 4, optional: true, type: :string)
+  field(:annotation, 5, optional: true, type: :string)
+  field(:destroy_on_zone_change, 6, optional: true, type: :bool)
+  field(:x, 7, optional: true, type: :sint32)
+  field(:y, 8, optional: true, type: :sint32)
+  field(:target_zone, 9, optional: true, type: :string)
+  field(:target_card_id, 10, optional: true, type: :sint32, default: -1)
 end

@@ -9,7 +9,7 @@ defmodule Event_UserMessage do
         }
   defstruct [:sender_name, :receiver_name, :message]
 
-  field :sender_name, 1, optional: true, type: :string
-  field :receiver_name, 2, optional: true, type: :string
-  field :message, 3, optional: true, type: :string
+  field(:sender_name, 1, optional: true, type: :string)
+  field(:receiver_name, 2, optional: true, type: :string)
+  field(:message, 3, optional: true, type: :string)
 end

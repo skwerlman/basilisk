@@ -7,5 +7,5 @@ defmodule Response_ViewLogHistory do
         }
   defstruct [:log_message]
 
-  field :log_message, 1, repeated: true, type: ServerInfo_ChatMessage
+  field(:log_message, 1, repeated: true, type: ServerInfo_ChatMessage)
 end

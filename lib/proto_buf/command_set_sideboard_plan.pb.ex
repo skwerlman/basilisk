@@ -7,5 +7,5 @@ defmodule Command_SetSideboardPlan do
         }
   defstruct [:move_list]
 
-  field :move_list, 1, repeated: true, type: MoveCard_ToZone
+  field(:move_list, 1, repeated: true, type: MoveCard_ToZone)
 end

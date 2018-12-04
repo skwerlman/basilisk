@@ -12,10 +12,10 @@ defmodule Event_GameJoined do
         }
   defstruct [:game_info, :game_types, :host_id, :player_id, :spectator, :resuming]
 
-  field :game_info, 1, optional: true, type: ServerInfo_Game
-  field :game_types, 2, repeated: true, type: ServerInfo_GameType
-  field :host_id, 3, optional: true, type: :sint32
-  field :player_id, 4, optional: true, type: :sint32
-  field :spectator, 5, optional: true, type: :bool
-  field :resuming, 6, optional: true, type: :bool
+  field(:game_info, 1, optional: true, type: ServerInfo_Game)
+  field(:game_types, 2, repeated: true, type: ServerInfo_GameType)
+  field(:host_id, 3, optional: true, type: :sint32)
+  field(:player_id, 4, optional: true, type: :sint32)
+  field(:spectator, 5, optional: true, type: :bool)
+  field(:resuming, 6, optional: true, type: :bool)
 end

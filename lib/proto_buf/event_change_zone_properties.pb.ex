@@ -8,6 +8,6 @@ defmodule Event_ChangeZoneProperties do
         }
   defstruct [:zone_name, :always_reveal_top_card]
 
-  field :zone_name, 1, optional: true, type: :string
-  field :always_reveal_top_card, 10, optional: true, type: :bool
+  field(:zone_name, 1, optional: true, type: :string)
+  field(:always_reveal_top_card, 10, optional: true, type: :bool)
 end

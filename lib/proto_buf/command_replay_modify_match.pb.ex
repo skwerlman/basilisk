@@ -8,6 +8,6 @@ defmodule Command_ReplayModifyMatch do
         }
   defstruct [:game_id, :do_not_hide]
 
-  field :game_id, 1, optional: true, type: :sint32, default: -1
-  field :do_not_hide, 2, optional: true, type: :bool
+  field(:game_id, 1, optional: true, type: :sint32, default: -1)
+  field(:do_not_hide, 2, optional: true, type: :bool)
 end

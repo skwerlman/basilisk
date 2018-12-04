@@ -7,5 +7,5 @@ defmodule Command_SetSideboardLock do
         }
   defstruct [:locked]
 
-  field :locked, 1, optional: true, type: :bool
+  field(:locked, 1, optional: true, type: :bool)
 end

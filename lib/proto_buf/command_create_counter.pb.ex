@@ -10,8 +10,8 @@ defmodule Command_CreateCounter do
         }
   defstruct [:counter_name, :counter_color, :radius, :value]
 
-  field :counter_name, 1, optional: true, type: :string
-  field :counter_color, 2, optional: true, type: Color
-  field :radius, 3, optional: true, type: :uint32
-  field :value, 4, optional: true, type: :sint32
+  field(:counter_name, 1, optional: true, type: :string)
+  field(:counter_color, 2, optional: true, type: Color)
+  field(:radius, 3, optional: true, type: :uint32)
+  field(:value, 4, optional: true, type: :sint32)
 end

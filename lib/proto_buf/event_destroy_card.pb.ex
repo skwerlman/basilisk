@@ -8,6 +8,6 @@ defmodule Event_DestroyCard do
         }
   defstruct [:zone_name, :card_id]
 
-  field :zone_name, 1, optional: true, type: :string
-  field :card_id, 2, optional: true, type: :uint32
+  field(:zone_name, 1, optional: true, type: :string)
+  field(:card_id, 2, optional: true, type: :uint32)
 end

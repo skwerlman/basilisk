@@ -7,5 +7,5 @@ defmodule Command_DeckDelDir do
         }
   defstruct [:path]
 
-  field :path, 1, optional: true, type: :string
+  field(:path, 1, optional: true, type: :string)
 end

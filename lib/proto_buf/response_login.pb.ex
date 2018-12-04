@@ -19,10 +19,10 @@ defmodule Response_Login do
     :missing_features
   ]
 
-  field :user_info, 1, optional: true, type: ServerInfo_User
-  field :buddy_list, 2, repeated: true, type: ServerInfo_User
-  field :ignore_list, 3, repeated: true, type: ServerInfo_User
-  field :denied_reason_str, 4, optional: true, type: :string
-  field :denied_end_time, 5, optional: true, type: :uint64
-  field :missing_features, 6, repeated: true, type: :string
+  field(:user_info, 1, optional: true, type: ServerInfo_User)
+  field(:buddy_list, 2, repeated: true, type: ServerInfo_User)
+  field(:ignore_list, 3, repeated: true, type: ServerInfo_User)
+  field(:denied_reason_str, 4, optional: true, type: :string)
+  field(:denied_end_time, 5, optional: true, type: :uint64)
+  field(:missing_features, 6, repeated: true, type: :string)
 end

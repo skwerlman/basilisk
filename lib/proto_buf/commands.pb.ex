@@ -23,12 +23,12 @@ defmodule CommandContainer do
     :admin_command
   ]
 
-  field :cmd_id, 1, optional: true, type: :uint64
-  field :game_id, 10, optional: true, type: :uint32
-  field :room_id, 20, optional: true, type: :uint32
-  field :session_command, 100, repeated: true, type: SessionCommand
-  field :game_command, 101, repeated: true, type: GameCommand
-  field :room_command, 102, repeated: true, type: RoomCommand
-  field :moderator_command, 103, repeated: true, type: ModeratorCommand
-  field :admin_command, 104, repeated: true, type: AdminCommand
+  field(:cmd_id, 1, optional: true, type: :uint64)
+  field(:game_id, 10, optional: true, type: :uint32)
+  field(:room_id, 20, optional: true, type: :uint32)
+  field(:session_command, 100, repeated: true, type: SessionCommand)
+  field(:game_command, 101, repeated: true, type: GameCommand)
+  field(:room_command, 102, repeated: true, type: RoomCommand)
+  field(:moderator_command, 103, repeated: true, type: ModeratorCommand)
+  field(:admin_command, 104, repeated: true, type: AdminCommand)
 end

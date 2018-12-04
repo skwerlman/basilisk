@@ -9,7 +9,7 @@ defmodule MoveCard_ToZone do
         }
   defstruct [:card_name, :start_zone, :target_zone]
 
-  field :card_name, 1, optional: true, type: :string
-  field :start_zone, 2, optional: true, type: :string
-  field :target_zone, 3, optional: true, type: :string
+  field(:card_name, 1, optional: true, type: :string)
+  field(:start_zone, 2, optional: true, type: :string)
+  field(:target_zone, 3, optional: true, type: :string)
 end

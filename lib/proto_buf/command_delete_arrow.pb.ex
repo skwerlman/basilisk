@@ -7,5 +7,5 @@ defmodule Command_DeleteArrow do
         }
   defstruct [:arrow_id]
 
-  field :arrow_id, 1, optional: true, type: :sint32, default: -1
+  field(:arrow_id, 1, optional: true, type: :sint32, default: -1)
 end

@@ -8,6 +8,6 @@ defmodule Response_Register do
         }
   defstruct [:denied_reason_str, :denied_end_time]
 
-  field :denied_reason_str, 1, optional: true, type: :string
-  field :denied_end_time, 2, optional: true, type: :uint64
+  field(:denied_reason_str, 1, optional: true, type: :string)
+  field(:denied_end_time, 2, optional: true, type: :uint64)
 end

@@ -10,10 +10,10 @@ defmodule CardToMove do
         }
   defstruct [:card_id, :face_down, :pt, :tapped]
 
-  field :card_id, 1, optional: true, type: :sint32, default: -1
-  field :face_down, 2, optional: true, type: :bool
-  field :pt, 3, optional: true, type: :string
-  field :tapped, 4, optional: true, type: :bool
+  field(:card_id, 1, optional: true, type: :sint32, default: -1)
+  field(:face_down, 2, optional: true, type: :bool)
+  field(:pt, 3, optional: true, type: :string)
+  field(:tapped, 4, optional: true, type: :bool)
 end
 
 defmodule ListOfCardsToMove do
@@ -25,7 +25,7 @@ defmodule ListOfCardsToMove do
         }
   defstruct [:card]
 
-  field :card, 1, repeated: true, type: CardToMove
+  field(:card, 1, repeated: true, type: CardToMove)
 end
 
 defmodule Command_MoveCard do
@@ -51,11 +51,11 @@ defmodule Command_MoveCard do
     :y
   ]
 
-  field :start_player_id, 1, optional: true, type: :sint32, default: -1
-  field :start_zone, 2, optional: true, type: :string
-  field :cards_to_move, 3, optional: true, type: ListOfCardsToMove
-  field :target_player_id, 4, optional: true, type: :sint32, default: -1
-  field :target_zone, 5, optional: true, type: :string
-  field :x, 6, optional: true, type: :sint32, default: -1
-  field :y, 7, optional: true, type: :sint32, default: -1
+  field(:start_player_id, 1, optional: true, type: :sint32, default: -1)
+  field(:start_zone, 2, optional: true, type: :string)
+  field(:cards_to_move, 3, optional: true, type: ListOfCardsToMove)
+  field(:target_player_id, 4, optional: true, type: :sint32, default: -1)
+  field(:target_zone, 5, optional: true, type: :string)
+  field(:x, 6, optional: true, type: :sint32, default: -1)
+  field(:y, 7, optional: true, type: :sint32, default: -1)
 end

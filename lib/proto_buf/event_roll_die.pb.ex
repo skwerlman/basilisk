@@ -8,6 +8,6 @@ defmodule Event_RollDie do
         }
   defstruct [:sides, :value]
 
-  field :sides, 1, optional: true, type: :uint32
-  field :value, 2, optional: true, type: :uint32
+  field(:sides, 1, optional: true, type: :uint32)
+  field(:value, 2, optional: true, type: :uint32)
 end

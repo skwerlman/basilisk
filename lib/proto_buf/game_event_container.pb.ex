@@ -10,8 +10,8 @@ defmodule GameEventContainer do
         }
   defstruct [:game_id, :event_list, :context, :seconds_elapsed]
 
-  field :game_id, 1, optional: true, type: :uint32
-  field :event_list, 2, repeated: true, type: GameEvent
-  field :context, 3, optional: true, type: GameEventContext
-  field :seconds_elapsed, 4, optional: true, type: :uint32
+  field(:game_id, 1, optional: true, type: :uint32)
+  field(:event_list, 2, repeated: true, type: GameEvent)
+  field(:context, 3, optional: true, type: GameEventContext)
+  field(:seconds_elapsed, 4, optional: true, type: :uint32)
 end

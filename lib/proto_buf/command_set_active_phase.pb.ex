@@ -7,5 +7,5 @@ defmodule Command_SetActivePhase do
         }
   defstruct [:phase]
 
-  field :phase, 1, optional: true, type: :uint32
+  field(:phase, 1, optional: true, type: :uint32)
 end

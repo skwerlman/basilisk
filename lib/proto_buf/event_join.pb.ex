@@ -7,5 +7,5 @@ defmodule Event_Join do
         }
   defstruct [:player_properties]
 
-  field :player_properties, 1, optional: true, type: ServerInfo_PlayerProperties
+  field(:player_properties, 1, optional: true, type: ServerInfo_PlayerProperties)
 end

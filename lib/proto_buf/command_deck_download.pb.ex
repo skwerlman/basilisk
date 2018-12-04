@@ -7,5 +7,5 @@ defmodule Command_DeckDownload do
         }
   defstruct [:deck_id]
 
-  field :deck_id, 1, optional: true, type: :sint32, default: -1
+  field(:deck_id, 1, optional: true, type: :sint32, default: -1)
 end

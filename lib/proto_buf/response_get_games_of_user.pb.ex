@@ -8,6 +8,6 @@ defmodule Response_GetGamesOfUser do
         }
   defstruct [:room_list, :game_list]
 
-  field :room_list, 1, repeated: true, type: ServerInfo_Room
-  field :game_list, 2, repeated: true, type: ServerInfo_Game
+  field(:room_list, 1, repeated: true, type: ServerInfo_Room)
+  field(:game_list, 2, repeated: true, type: ServerInfo_Game)
 end

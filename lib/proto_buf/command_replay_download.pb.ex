@@ -7,5 +7,5 @@ defmodule Command_ReplayDownload do
         }
   defstruct [:replay_id]
 
-  field :replay_id, 1, optional: true, type: :sint32, default: -1
+  field(:replay_id, 1, optional: true, type: :sint32, default: -1)
 end

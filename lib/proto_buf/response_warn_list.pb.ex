@@ -9,7 +9,7 @@ defmodule Response_WarnList do
         }
   defstruct [:warning, :user_name, :user_clientid]
 
-  field :warning, 1, repeated: true, type: :string
-  field :user_name, 2, optional: true, type: :string
-  field :user_clientid, 3, optional: true, type: :string
+  field(:warning, 1, repeated: true, type: :string)
+  field(:user_name, 2, optional: true, type: :string)
+  field(:user_clientid, 3, optional: true, type: :string)
 end

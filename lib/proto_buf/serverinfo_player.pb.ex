@@ -11,9 +11,9 @@ defmodule ServerInfo_Player do
         }
   defstruct [:properties, :deck_list, :zone_list, :counter_list, :arrow_list]
 
-  field :properties, 1, optional: true, type: ServerInfo_PlayerProperties
-  field :deck_list, 2, optional: true, type: :string
-  field :zone_list, 3, repeated: true, type: ServerInfo_Zone
-  field :counter_list, 4, repeated: true, type: ServerInfo_Counter
-  field :arrow_list, 5, repeated: true, type: ServerInfo_Arrow
+  field(:properties, 1, optional: true, type: ServerInfo_PlayerProperties)
+  field(:deck_list, 2, optional: true, type: :string)
+  field(:zone_list, 3, repeated: true, type: ServerInfo_Zone)
+  field(:counter_list, 4, repeated: true, type: ServerInfo_Counter)
+  field(:arrow_list, 5, repeated: true, type: ServerInfo_Arrow)
 end

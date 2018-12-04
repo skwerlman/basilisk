@@ -8,6 +8,6 @@ defmodule Event_RemoveFromList do
         }
   defstruct [:list_name, :user_name]
 
-  field :list_name, 1, optional: true, type: :string
-  field :user_name, 2, optional: true, type: :string
+  field(:list_name, 1, optional: true, type: :string)
+  field(:user_name, 2, optional: true, type: :string)
 end

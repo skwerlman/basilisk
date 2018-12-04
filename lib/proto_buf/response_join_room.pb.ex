@@ -7,5 +7,5 @@ defmodule Response_JoinRoom do
         }
   defstruct [:room_info]
 
-  field :room_info, 1, optional: true, type: ServerInfo_Room
+  field(:room_info, 1, optional: true, type: ServerInfo_Room)
 end

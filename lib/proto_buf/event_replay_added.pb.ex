@@ -7,5 +7,5 @@ defmodule Event_ReplayAdded do
         }
   defstruct [:match_info]
 
-  field :match_info, 1, optional: true, type: ServerInfo_ReplayMatch
+  field(:match_info, 1, optional: true, type: ServerInfo_ReplayMatch)
 end

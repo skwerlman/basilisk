@@ -7,5 +7,5 @@ defmodule Event_CreateCounter do
         }
   defstruct [:counter_info]
 
-  field :counter_info, 1, optional: true, type: ServerInfo_Counter
+  field(:counter_info, 1, optional: true, type: ServerInfo_Counter)
 end

@@ -7,5 +7,5 @@ defmodule Event_SetActivePhase do
         }
   defstruct [:phase]
 
-  field :phase, 1, optional: true, type: :sint32
+  field(:phase, 1, optional: true, type: :sint32)
 end

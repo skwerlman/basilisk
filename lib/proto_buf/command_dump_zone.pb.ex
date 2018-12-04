@@ -9,7 +9,7 @@ defmodule Command_DumpZone do
         }
   defstruct [:player_id, :zone_name, :number_cards]
 
-  field :player_id, 1, optional: true, type: :sint32, default: -1
-  field :zone_name, 2, optional: true, type: :string
-  field :number_cards, 3, optional: true, type: :sint32
+  field(:player_id, 1, optional: true, type: :sint32, default: -1)
+  field(:zone_name, 2, optional: true, type: :string)
+  field(:number_cards, 3, optional: true, type: :sint32)
 end

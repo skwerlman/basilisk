@@ -7,5 +7,5 @@ defmodule Command_ReadyStart do
         }
   defstruct [:ready]
 
-  field :ready, 1, optional: true, type: :bool
+  field(:ready, 1, optional: true, type: :bool)
 end

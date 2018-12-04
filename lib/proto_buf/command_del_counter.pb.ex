@@ -7,5 +7,5 @@ defmodule Command_DelCounter do
         }
   defstruct [:counter_id]
 
-  field :counter_id, 1, optional: true, type: :sint32, default: -1
+  field(:counter_id, 1, optional: true, type: :sint32, default: -1)
 end

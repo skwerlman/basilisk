@@ -7,7 +7,7 @@ defmodule ServerInfo_DeckStorage_File do
         }
   defstruct [:creation_time]
 
-  field :creation_time, 1, optional: true, type: :uint32
+  field(:creation_time, 1, optional: true, type: :uint32)
 end
 
 defmodule ServerInfo_DeckStorage_Folder do
@@ -19,7 +19,7 @@ defmodule ServerInfo_DeckStorage_Folder do
         }
   defstruct [:items]
 
-  field :items, 1, repeated: true, type: ServerInfo_DeckStorage_TreeItem
+  field(:items, 1, repeated: true, type: ServerInfo_DeckStorage_TreeItem)
 end
 
 defmodule ServerInfo_DeckStorage_TreeItem do
@@ -34,8 +34,8 @@ defmodule ServerInfo_DeckStorage_TreeItem do
         }
   defstruct [:id, :name, :file, :folder]
 
-  field :id, 1, optional: true, type: :uint32
-  field :name, 2, optional: true, type: :string
-  field :file, 10, optional: true, type: ServerInfo_DeckStorage_File
-  field :folder, 11, optional: true, type: ServerInfo_DeckStorage_Folder
+  field(:id, 1, optional: true, type: :uint32)
+  field(:name, 2, optional: true, type: :string)
+  field(:file, 10, optional: true, type: ServerInfo_DeckStorage_File)
+  field(:folder, 11, optional: true, type: ServerInfo_DeckStorage_Folder)
 end

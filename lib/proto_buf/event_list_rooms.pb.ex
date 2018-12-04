@@ -7,5 +7,5 @@ defmodule Event_ListRooms do
         }
   defstruct [:room_list]
 
-  field :room_list, 1, repeated: true, type: ServerInfo_Room
+  field(:room_list, 1, repeated: true, type: ServerInfo_Room)
 end

@@ -8,6 +8,6 @@ defmodule ServerInfo_CardCounter do
         }
   defstruct [:id, :value]
 
-  field :id, 1, optional: true, type: :sint32
-  field :value, 2, optional: true, type: :sint32
+  field(:id, 1, optional: true, type: :sint32)
+  field(:value, 2, optional: true, type: :sint32)
 end

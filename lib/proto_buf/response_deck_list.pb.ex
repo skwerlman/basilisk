@@ -7,5 +7,5 @@ defmodule Response_DeckList do
         }
   defstruct [:root]
 
-  field :root, 1, optional: true, type: ServerInfo_DeckStorage_Folder
+  field(:root, 1, optional: true, type: ServerInfo_DeckStorage_Folder)
 end

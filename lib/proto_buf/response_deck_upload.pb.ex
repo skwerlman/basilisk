@@ -7,5 +7,5 @@ defmodule Response_DeckUpload do
         }
   defstruct [:new_file]
 
-  field :new_file, 1, optional: true, type: ServerInfo_DeckStorage_TreeItem
+  field(:new_file, 1, optional: true, type: ServerInfo_DeckStorage_TreeItem)
 end

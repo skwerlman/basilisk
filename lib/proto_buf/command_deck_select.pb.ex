@@ -8,6 +8,6 @@ defmodule Command_DeckSelect do
         }
   defstruct [:deck, :deck_id]
 
-  field :deck, 1, optional: true, type: :string
-  field :deck_id, 2, optional: true, type: :sint32, default: -1
+  field(:deck, 1, optional: true, type: :string)
+  field(:deck_id, 2, optional: true, type: :sint32, default: -1)
 end

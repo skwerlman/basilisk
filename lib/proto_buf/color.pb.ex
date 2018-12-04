@@ -10,8 +10,8 @@ defmodule Color do
         }
   defstruct [:r, :g, :b, :a]
 
-  field :r, 1, optional: true, type: :uint32
-  field :g, 2, optional: true, type: :uint32
-  field :b, 3, optional: true, type: :uint32
-  field :a, 4, optional: true, type: :uint32
+  field(:r, 1, optional: true, type: :uint32)
+  field(:g, 2, optional: true, type: :uint32)
+  field(:b, 3, optional: true, type: :uint32)
+  field(:a, 4, optional: true, type: :uint32)
 end

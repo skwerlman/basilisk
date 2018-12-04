@@ -9,7 +9,7 @@ defmodule Event_ServerCompleteList do
         }
   defstruct [:server_id, :user_list, :room_list]
 
-  field :server_id, 1, optional: true, type: :uint32
-  field :user_list, 2, repeated: true, type: ServerInfo_User
-  field :room_list, 3, repeated: true, type: ServerInfo_Room
+  field(:server_id, 1, optional: true, type: :uint32)
+  field(:user_list, 2, repeated: true, type: ServerInfo_User)
+  field(:room_list, 3, repeated: true, type: ServerInfo_Room)
 end

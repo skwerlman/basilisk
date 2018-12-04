@@ -11,9 +11,9 @@ defmodule ServerInfo_Counter do
         }
   defstruct [:id, :name, :counter_color, :radius, :count]
 
-  field :id, 1, optional: true, type: :sint32
-  field :name, 2, optional: true, type: :string
-  field :counter_color, 3, optional: true, type: Color
-  field :radius, 4, optional: true, type: :sint32
-  field :count, 5, optional: true, type: :sint32
+  field(:id, 1, optional: true, type: :sint32)
+  field(:name, 2, optional: true, type: :string)
+  field(:counter_color, 3, optional: true, type: Color)
+  field(:radius, 4, optional: true, type: :sint32)
+  field(:count, 5, optional: true, type: :sint32)
 end

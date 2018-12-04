@@ -7,5 +7,5 @@ defmodule Response_ListUsers do
         }
   defstruct [:user_list]
 
-  field :user_list, 1, repeated: true, type: ServerInfo_User
+  field(:user_list, 1, repeated: true, type: ServerInfo_User)
 end

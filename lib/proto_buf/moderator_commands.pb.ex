@@ -10,12 +10,12 @@ defmodule ModeratorCommand.ModeratorCommandType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto2
 
-  field :BAN_FROM_SERVER, 1000
-  field :BAN_HISTORY, 1001
-  field :WARN_USER, 1002
-  field :WARN_HISTORY, 1003
-  field :WARN_LIST, 1004
-  field :VIEWLOG_HISTORY, 1005
+  field(:BAN_FROM_SERVER, 1000)
+  field(:BAN_HISTORY, 1001)
+  field(:WARN_USER, 1002)
+  field(:WARN_HISTORY, 1003)
+  field(:WARN_LIST, 1004)
+  field(:VIEWLOG_HISTORY, 1005)
 end
 
 defmodule Command_BanFromServer do
@@ -32,12 +32,12 @@ defmodule Command_BanFromServer do
         }
   defstruct [:user_name, :address, :minutes, :reason, :visible_reason, :clientid]
 
-  field :user_name, 1, optional: true, type: :string
-  field :address, 2, optional: true, type: :string
-  field :minutes, 3, optional: true, type: :uint32
-  field :reason, 4, optional: true, type: :string
-  field :visible_reason, 5, optional: true, type: :string
-  field :clientid, 6, optional: true, type: :string
+  field(:user_name, 1, optional: true, type: :string)
+  field(:address, 2, optional: true, type: :string)
+  field(:minutes, 3, optional: true, type: :uint32)
+  field(:reason, 4, optional: true, type: :string)
+  field(:visible_reason, 5, optional: true, type: :string)
+  field(:clientid, 6, optional: true, type: :string)
 end
 
 defmodule Command_GetBanHistory do
@@ -49,7 +49,7 @@ defmodule Command_GetBanHistory do
         }
   defstruct [:user_name]
 
-  field :user_name, 1, optional: true, type: :string
+  field(:user_name, 1, optional: true, type: :string)
 end
 
 defmodule Command_WarnUser do
@@ -63,9 +63,9 @@ defmodule Command_WarnUser do
         }
   defstruct [:user_name, :reason, :clientid]
 
-  field :user_name, 1, optional: true, type: :string
-  field :reason, 2, optional: true, type: :string
-  field :clientid, 3, optional: true, type: :string
+  field(:user_name, 1, optional: true, type: :string)
+  field(:reason, 2, optional: true, type: :string)
+  field(:clientid, 3, optional: true, type: :string)
 end
 
 defmodule Command_GetWarnHistory do
@@ -77,7 +77,7 @@ defmodule Command_GetWarnHistory do
         }
   defstruct [:user_name]
 
-  field :user_name, 1, optional: true, type: :string
+  field(:user_name, 1, optional: true, type: :string)
 end
 
 defmodule Command_GetWarnList do
@@ -91,9 +91,9 @@ defmodule Command_GetWarnList do
         }
   defstruct [:mod_name, :user_name, :user_clientid]
 
-  field :mod_name, 1, optional: true, type: :string
-  field :user_name, 2, optional: true, type: :string
-  field :user_clientid, 3, optional: true, type: :string
+  field(:mod_name, 1, optional: true, type: :string)
+  field(:user_name, 2, optional: true, type: :string)
+  field(:user_clientid, 3, optional: true, type: :string)
 end
 
 defmodule Command_ViewLogHistory do
@@ -121,12 +121,12 @@ defmodule Command_ViewLogHistory do
     :maximum_results
   ]
 
-  field :user_name, 1, optional: true, type: :string
-  field :ip_address, 2, optional: true, type: :string
-  field :game_name, 3, optional: true, type: :string
-  field :game_id, 4, optional: true, type: :string
-  field :message, 5, optional: true, type: :string
-  field :log_location, 6, repeated: true, type: :string
-  field :date_range, 7, required: true, type: :uint32
-  field :maximum_results, 8, optional: true, type: :uint32
+  field(:user_name, 1, optional: true, type: :string)
+  field(:ip_address, 2, optional: true, type: :string)
+  field(:game_name, 3, optional: true, type: :string)
+  field(:game_id, 4, optional: true, type: :string)
+  field(:message, 5, optional: true, type: :string)
+  field(:log_location, 6, repeated: true, type: :string)
+  field(:date_range, 7, required: true, type: :uint32)
+  field(:maximum_results, 8, optional: true, type: :uint32)
 end

@@ -7,5 +7,5 @@ defmodule Response_DeckDownload do
         }
   defstruct [:deck]
 
-  field :deck, 1, optional: true, type: :string
+  field(:deck, 1, optional: true, type: :string)
 end

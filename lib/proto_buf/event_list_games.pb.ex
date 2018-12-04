@@ -7,5 +7,5 @@ defmodule Event_ListGames do
         }
   defstruct [:game_list]
 
-  field :game_list, 1, repeated: true, type: ServerInfo_Game
+  field(:game_list, 1, repeated: true, type: ServerInfo_Game)
 end

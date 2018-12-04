@@ -7,5 +7,5 @@ defmodule Response_DumpZone do
         }
   defstruct [:zone_info]
 
-  field :zone_info, 1, optional: true, type: ServerInfo_Zone
+  field(:zone_info, 1, optional: true, type: ServerInfo_Zone)
 end
