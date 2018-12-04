@@ -5,16 +5,27 @@ defmodule Basilisk.Application do
 
   use Application
 
+  @impl Application
   def start(_type, _args) do
-    # List all child processes to be supervised
-    children = [
-      # Starts a worker by calling: Basilisk.Worker.start_link(arg)
-      # {Basilisk.Worker, arg},
-    ]
-
-    # See https://hexdocs.pm/elixir/Supervisor.html
-    # for other strategies and supported options
+    children = []
     opts = [strategy: :one_for_one, name: Basilisk.Supervisor]
     Supervisor.start_link(children, opts)
+  end
+
+  @impl Application
+  def start_phase(:init, _type, _args) do
+    start_supervised_child!(Basilisk.Client)
+    # start_supervised_child!(Basilisk.Repo)
+  end
+
+  def start_phase(:ready, _type, _args) do
+    start_supervised_child!(Basilisk.Socket)
+  end
+
+  defp start_supervised_child!(child_spec) do
+    case Supervisor.start_child(Basilisk.Supervisor, child_spec) do
+      {:ok, _} -> :ok
+      {:error, reason} -> raise reason
+    end
   end
 end

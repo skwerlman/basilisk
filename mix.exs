@@ -24,7 +24,11 @@ defmodule Basilisk.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {Basilisk.Application, []}
+      mod: {Basilisk.Application, []},
+      start_phases: [
+        init: [],
+        ready: []
+      ]
     ]
   end
 
@@ -34,7 +38,9 @@ defmodule Basilisk.MixProject do
         "cmd ./mix_tasks/setup_hooks.sh",
         "cmd ./mix_tasks/setup_protoc.sh",
         "deps.get",
-        "compile"
+        "compile",
+        "ecto.create",
+        "ecto.migrate"
       ],
       hipe: ["protoc", "cmd ./tasks/hipe.sh"],
       protoc: "cmd ./tasks/protoc.sh",
@@ -53,6 +59,7 @@ defmodule Basilisk.MixProject do
       {:logger_file_backend, "~> 0.0"},
       {:postgrex, ">= 0.0.0"},
       {:protobuf, "~> 0.5"},
+      {:ranch, "~> 1.7"},
       #####
       {:credo, "~> 1.0", runtime: false, only: [:dev, :test]},
       {:dialyxir, ">= 1.0.0-rc.4", runtime: false, only: [:dev, :test]},
