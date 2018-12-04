@@ -34,6 +34,7 @@ defmodule Basilisk.MixProject do
         "deps.get",
         "compile"
       ],
+      hipe: ["protoc", "cmd ./tasks/hipe.sh"],
       protoc: "cmd ./tasks/protoc.sh",
       compile: ["protoc", "compile"]
     ]
