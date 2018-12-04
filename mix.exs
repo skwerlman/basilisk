@@ -11,6 +11,7 @@ defmodule Basilisk.MixProject do
       start_permanent: Mix.env() == :prod,
       test_coverage: [tool: ExCoveralls],
       preferred_cli_env: [coveralls: :test, test: :test],
+      aliases: aliases(),
       deps: deps(),
       dialyzer: dialyzer(),
       package: package()
@@ -22,6 +23,16 @@ defmodule Basilisk.MixProject do
     [
       extra_applications: [:logger],
       mod: {Basilisk.Application, []}
+    ]
+  end
+
+  defp aliases do
+    [
+      setup: [
+        "cmd ./mix_tasks/setup_hooks.sh",
+        "deps.get",
+        "compile"
+      ],
     ]
   end
 
