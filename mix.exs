@@ -30,9 +30,12 @@ defmodule Basilisk.MixProject do
     [
       setup: [
         "cmd ./mix_tasks/setup_hooks.sh",
+        "cmd ./mix_tasks/setup_protoc.sh",
         "deps.get",
         "compile"
       ],
+      protoc: "cmd ./tasks/protoc.sh",
+      compile: ["protoc", "compile"]
     ]
   end
 
@@ -87,7 +90,6 @@ defmodule Basilisk.MixProject do
   defp files do
     [
       "lib",
-      "proto_buf",
       "mix.exs",
       "LICENSE",
       "README.md"

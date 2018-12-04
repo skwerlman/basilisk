@@ -53,19 +53,20 @@ mix deps.get && mix deps.compile
 ### Building Protobufs
 
 Make sure:
-- `protoc` is installed and available in your path
+- google's `protoc` is installed and available in your path
 - your escripts directory is in your path (`~/.mix/escripts` on linux)
 
 ```sh
 # install the elixir protobuf compiler
-mix escript.install protobuf
+mix protoc-setup
 # compile the protobufs
-protoc -I proto_buf --elixir_out=./lib/proto_buf/ proto_buf/*.proto
+mix protoc
 ```
 
 ### Building basilisk
 
 ```sh
+# compile is a mix alias to `mix do protoc, compile`
 mix compile
 ```
 
