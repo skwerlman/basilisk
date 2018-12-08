@@ -27,15 +27,15 @@ defmodule Basilisk.Socket.Handler do
   def handle_info({:tcp, socket, <<0, 0, 0, 0>>}, state = %{socket: socket, transport: transport}) do
     # transport.send(socket, "<?xml version=\"1.0\"?><cockatrice_server_stream version=\"#{@protocol_version}\">")
 
-    server_id =
-      %Event_ServerIdentification{
-        server_name: Basilisk.server_name(),
-        server_version: "basilisk-v#{Basilisk.version()}",
-        protocol_version: @protocol_version
-      }
-      |> Protobuf.encode()
-
-    transport.send(socket, server_id)
+    # server_id =
+    #   Event_ServerIdentification.new(
+    #     server_name: Basilisk.server_name(),
+    #     server_version: "basilisk-v#{Basilisk.version()}",
+    #     protocol_version: @protocol_version
+    #   )
+    #   |> Protobuf.encode()
+    #
+    # transport.send(socket, server_id)
     {:noreply, state}
   end
 

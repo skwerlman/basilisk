@@ -36,15 +36,12 @@ defmodule Basilisk.MixProject do
     [
       setup: [
         "cmd ./mix_tasks/setup_hooks.sh",
-        "cmd ./mix_tasks/setup_protoc.sh",
         "deps.get",
         "compile",
         "ecto.create",
         "ecto.migrate"
       ],
-      hipe: ["protoc", "cmd ./tasks/hipe.sh"],
-      protoc: "cmd ./tasks/protoc.sh",
-      compile: ["protoc", "compile"]
+      hipe: ["protoc", "cmd ./tasks/hipe.sh"]
     ]
   end
 
@@ -55,10 +52,10 @@ defmodule Basilisk.MixProject do
       {:comeonin, "~> 4.1"},
       {:ecto_sql, "~> 3.0"},
       {:ecto, "~> 3.0"},
+      {:exprotobuf, "~> 1.2"},
       {:flex_logger, "~> 0.2"},
       {:logger_file_backend, "~> 0.0"},
       {:postgrex, ">= 0.0.0"},
-      {:protobuf, "~> 0.5"},
       {:ranch, "~> 1.7"},
       #####
       {:credo, "~> 1.0", runtime: false, only: [:dev, :test]},
