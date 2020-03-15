@@ -1,5 +1,7 @@
 defmodule Basilisk.Client do
-  @moduledoc false
+  @moduledoc """
+  A `DynamicSupervisor` to oversee all of a server's clients, as well as a struct to hold session info
+  """
   alias Basilisk.Client.Session
   alias Basilisk.User
   require Logger
@@ -8,7 +10,7 @@ defmodule Basilisk.Client do
   @typedoc """
   Contains information about a client connection.
 
-  `:state` defaults to an empty `Basilisk.Client.State`
+  `:session` defaults to an empty `Basilisk.Client.Session`
 
   Enforced keys:
     - `:ip_address`
@@ -31,6 +33,12 @@ defmodule Basilisk.Client do
     DynamicSupervisor.init(strategy: :one_for_one)
   end
 
+  @doc """
+  Starts a new client process
+
+  A struct containing everything we know about the client and their session is
+  used to initialize the process.
+  """
   @spec new(client :: t()) :: pid() | :failed
   def new(client) do
     res = DynamicSupervisor.start_child(Basilisk.ClientSupervisor, {Basilisk.Client, client})

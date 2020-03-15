@@ -1,5 +1,8 @@
 defmodule Basilisk.User do
-  @moduledoc false
+  @moduledoc """
+  A struct to hold user account data
+  """
+
   @type t :: %{
           :active => boolean(),
           :avatar_bmp => binary() | nil,
@@ -19,7 +22,12 @@ defmodule Basilisk.User do
             email: nil,
             known_client_ids: [],
             password_sha512: nil,
-            privileges: %Basilisk.User.Privileges{},
+            privileges: %Basilisk.User.Privileges{
+              admin: false,
+              moderator: false,
+              vip: false,
+              donator: false
+            },
             real_name: nil,
             registration_date: nil,
             username: nil

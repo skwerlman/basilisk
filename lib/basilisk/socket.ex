@@ -1,11 +1,13 @@
 defmodule Basilisk.Socket do
-  @moduledoc false
+  @moduledoc """
+  A `:ranch` supervisor to handle incoming connections
+  """
   require Logger
 
   def start_link do
     port = Application.get_env(:basilisk, :port, 4747)
     acceptors = Application.get_env(:basilisk, :connection_workers, 100)
-    _ = Logger.debug(fn -> "starting server on port :#{inspect(port)}" end)
+    _ = Logger.info(fn -> "starting server on port :#{inspect(port)}" end)
 
     opts = [
       port: port,

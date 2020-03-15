@@ -1,7 +1,19 @@
 defmodule Basilisk.Application do
-  # See https://hexdocs.pm/elixir/Application.html
-  # for more information on OTP Applications
-  @moduledoc false
+  @moduledoc """
+  The main module for the Basilisk application
+
+  The module starts up in 2 phases: `:init` and `:ready`.
+
+  During the `:init` phase, the client, room, server, and repo supervisors
+  are started.
+
+  In the `:ready` phase, the socket supervisor is started, and the application
+  begins accepting connections.
+
+  NOTE: In future versions with multi-server support, a third phase will happen
+  between `:init` and `:ready`, called `:sync`. This phase will handle connecting
+  to any existsing nodes, and early synchronisation of server state.
+  """
 
   use Application
 
@@ -9,6 +21,7 @@ defmodule Basilisk.Application do
   def start(_type, _args) do
     children = []
     opts = [strategy: :one_for_one, name: Basilisk.Supervisor]
+
     Supervisor.start_link(children, opts)
   end
 
