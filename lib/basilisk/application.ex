@@ -16,6 +16,7 @@ defmodule Basilisk.Application do
   """
 
   use Application
+  require Logger
 
   @impl Application
   def start(_type, _args) do
@@ -37,8 +38,12 @@ defmodule Basilisk.Application do
 
   defp start_supervised_child!(child_spec) do
     case Supervisor.start_child(Basilisk.Supervisor, child_spec) do
-      {:ok, _} -> :ok
-      {:error, reason} -> raise reason
+      {:ok, _} ->
+        :ok
+
+      {:error, reason} ->
+        Logger.error(inspect(reason))
+        raise inspect(reason)
     end
   end
 end
