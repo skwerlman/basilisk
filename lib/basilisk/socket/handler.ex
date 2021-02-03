@@ -29,20 +29,26 @@ defmodule Basilisk.Socket.Handler do
       "<?xml version=\"1.0\"?><cockatrice_server_stream version=\"#{@protocol_version}\">"
     )
 
-    server_id =
-      EventServerIdentification.new(
-        server_name: Basilisk.server_name(),
-        server_version: "basilisk-v#{Basilisk.version()}",
-        protocol_version: @protocol_version
+    msg =
+      ServerMessage.new(
+        message_type: :SESSION_EVENT,
+        session_event:
+          Protobuf.Extension.put(
+            SessionEvent,
+            SessionEvent.new(),
+            EventServerIdentification.PbExtension,
+            :"EventServerIdentification.ext",
+            EventServerIdentification.new(
+              server_name: Basilisk.server_name(),
+              server_version: "basilisk-v#{Basilisk.version()}",
+              protocol_version: @protocol_version
+            )
+          )
       )
 
-    server_id_enc = EventServerIdentification.encode(server_id)
+    server_id_enc = Protobuf.encode(msg)
 
-    _ = Logger.debug(inspect(server_id))
-    _ = Logger.debug(inspect(server_id_enc))
-    _ = Logger.debug(inspect(EventServerIdentification.decode(server_id_enc)))
-
-    transport.send(socket, server_id)
+    transport.send(socket, server_id_enc)
     {:noreply, state}
   end
 
