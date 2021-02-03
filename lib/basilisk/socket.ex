@@ -10,14 +10,16 @@ defmodule Basilisk.Socket do
     acceptors = Application.get_env(:basilisk, :connection_workers, 100)
     _ = Logger.info(fn -> "starting server on port :#{inspect(port)}" end)
 
-    opts = [
-      port: port,
-      keepalive: true
-    ]
+    opts = %{
+      socket_opts: [
+        port: port,
+        keepalive: true
+      ],
+      num_acceptors: acceptors
+    }
 
     :ranch.start_listener(
       Basilisk.Socket.Pool,
-      acceptors,
       # NOTE
       # trice clients can connect over ssl
       # this should be made configurable to :ranch_ssl

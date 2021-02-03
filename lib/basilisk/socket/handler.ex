@@ -7,16 +7,17 @@ defmodule Basilisk.Socket.Handler do
   use GenServer
   require Logger
 
-  @protocol_version 15
+  @protocol_version 14
+  @protocol_version_str inspect(@protocol_version)
 
   @impl :ranch_protocol
-  def start_link(ref, socket, transport, _opts) do
-    pid = :proc_lib.spawn_link(__MODULE__, :init, [{ref, socket, transport}])
+  def start_link(ref, transport, _sock, _opts \\ []) do
+    pid = :proc_lib.spawn_link(__MODULE__, :init, [{ref, transport}])
     {:ok, pid}
   end
 
   @impl GenServer
-  def init({ref, _socket, transport}) do
+  def init({ref, transport}) do
     {:ok, socket} = :ranch.handshake(ref)
     :ok = transport.setopts(socket, [{:active, true}])
     :gen_server.enter_loop(__MODULE__, [], %{socket: socket, transport: transport})
@@ -24,9 +25,15 @@ defmodule Basilisk.Socket.Handler do
 
   @impl GenServer
   def handle_info({:tcp, socket, <<0, 0, 0, 0>>}, state = %{socket: socket, transport: transport}) do
+    # Send legacy XMLRPC message for reasons
     transport.send(
       socket,
-      "<?xml version=\"1.0\"?><cockatrice_server_stream version=\"#{@protocol_version}\">"
+      [
+        "<?xml version=\"1.0\"?>",
+        "<cockatrice_server_stream version=\"",
+        @protocol_version_str,
+        "\">"
+      ]
     )
 
     msg =
@@ -53,11 +60,10 @@ defmodule Basilisk.Socket.Handler do
   end
 
   @impl GenServer
-  def handle_info({:tcp, socket, data}, state = %{socket: socket, transport: transport}) do
+  def handle_info({:tcp, _socket, data}, state) do
     command = CommandContainer.decode(data)
     _ = Logger.warn(inspect(data))
     _ = Logger.warn(inspect(command))
-    # transport.send(socket, data)
     {:noreply, state}
   end
 

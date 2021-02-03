@@ -62,7 +62,7 @@ defmodule Basilisk.MixProject do
       {:logger_file_backend, "~> 0.0"},
       {:protobuf, git: "https://github.com/skwerlman/protobuf-elixir", branch: "no_underscores"},
       {:postgrex, "~> 0.15"},
-      {:ranch, "~> 1.7"},
+      {:ranch, "~> 2.0"},
       {:jason, "~> 1.2"},
       #####
       {:credo, "~> 1.5", runtime: false, only: [:dev, :test]},
