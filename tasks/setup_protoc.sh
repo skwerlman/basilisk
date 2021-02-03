@@ -1,12 +1,14 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
+set -e
 
 if [[ $(which asdf) ]]; then
   echo "Reshimming asdf..."
-  asdf reshim
   echo "If warnings about masking executables in your path appeared, you can safely ignore them."
+  asdf reshim
 fi
 
 if [[ ! $(which protoc-gen-elixir) ]]; then
+  echo "NOTICE: Appending '$HOME/.mix/escripts' to your PATH"
   shell=${SHELL##*/}
 
   case $shell in
@@ -29,3 +31,5 @@ if [[ ! $(which protoc-gen-elixir) ]]; then
       echo "SHELL=$SHELL"
   esac
 fi
+
+set +e

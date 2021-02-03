@@ -11,8 +11,7 @@ defmodule Basilisk.MixProject do
       version: @version,
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
-      test_coverage: [tool: ExCoveralls],
-      preferred_cli_env: [coveralls: :test, test: :test],
+      preferred_cli_env: [test: :test],
       aliases: aliases(),
       deps: deps(),
       docs: docs(),
@@ -38,9 +37,10 @@ defmodule Basilisk.MixProject do
     [
       setup: [
         "cmd ./tasks/setup_hooks.sh",
-        "escript.install hex protobuf",
+        "escript.install github skwerlman/protobuf-elixir branch no_underscores",
         "cmd ./tasks/setup_protoc.sh",
         "deps.get",
+        "deps.compile",
         "compile",
         "ecto.create",
         "ecto.migrate"
@@ -54,21 +54,20 @@ defmodule Basilisk.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:argon2_elixir, "~> 2.3"},
+      {:argon2_elixir, "~> 2.4"},
       {:comeonin, "~> 5.3"},
-      {:ecto_sql, "~> 3.3"},
-      {:ecto, "~> 3.3"},
+      {:ecto_sql, "~> 3.5"},
+      {:ecto, "~> 3.5"},
       {:flex_logger, "~> 0.2"},
       {:logger_file_backend, "~> 0.0"},
-      {:protobuf, ">= 0.8.0-beta.1"},
+      {:protobuf, git: "https://github.com/skwerlman/protobuf-elixir", branch: "no_underscores"},
       {:postgrex, "~> 0.15"},
       {:ranch, "~> 1.7"},
+      {:jason, "~> 1.2"},
       #####
-      {:credo, "~> 1.3", runtime: false, only: [:dev, :test]},
-      {:dialyxir, ">= 1.0.0-rc.7", runtime: false, only: [:dev, :test]},
-      {:distillery, "~> 2.1", runtime: false},
-      {:ex_doc, "~> 0.21", runtime: false, only: :dev},
-      {:excoveralls, "~> 0.12", runtime: false, only: :test}
+      {:credo, "~> 1.5", runtime: false, only: [:dev, :test]},
+      {:dialyxir, "~> 1.0", runtime: false, only: [:dev, :test]},
+      {:ex_doc, "~> 0.23", runtime: false, only: :dev}
     ]
   end
 

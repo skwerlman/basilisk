@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 # The protobuf source folder
 IN_DIR='proto'
@@ -77,4 +78,15 @@ if [[ ${#recompile_targets[@]} -gt 0 ]]; then
   echo "Compiling ${#recompile_targets[@]} files (.proto)"
 
   protoc -I "$IN_DIR" --elixir_out="./$OUT_DIR/$IN_DIR/" "${recompile_targets[@]}"
+
+  for pbex in "$OUT_DIR/$IN_DIR"/*.pb.ex; do
+    # Remove underscores from the middle of module names
+    sed -i -r "s/([a-z])_([A-Z])/\1\2/g" "${pbex}"
+
+    # Rename PbExtension modules (see https://github.com/elixir-protobuf/protobuf/issues/88)
+    module=$(basename "${pbex%.pb.ex}" | sed -r 's/(^|_)(\w)/\U\2/g')
+    sed -i "s/\ PbExtension/\ ${module}.PbExtension/g" "${pbex}"
+  done
 fi
+
+set +e

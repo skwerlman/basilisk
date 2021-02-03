@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
+set -e
 
 _HIPE_OPTIONS="[native,{hipe,[o3]}]"
 
 MAIN_APP="basilisk"
-NO_HIPE=("argon2_elixir" "credo" "dialyxir" "distillery" "excoveralls" "ex_doc")
+# skip non-runtime apps
+NO_HIPE=("credo" "dialyxir" "distillery" "excoveralls" "ex_doc")
+# skip incompatible apps
+NO_HIPE+=("argon2_elixir")
 
 # default to dev env
 _=${MIX_ENV:=dev}
@@ -33,6 +37,11 @@ for app in "${APPS[@]%?}"; do
   fi
 done
 
+echo "=== HiPE ==="
 ERL_COMPILER_OPTIONS=$_HIPE_OPTIONS mix deps.compile "${hipe_targets[@]}"
+echo "=== BEAM ==="
 mix deps.compile "${normal_targets[@]}"
+echo "=== ${MAIN_APP} ==="
 ERL_COMPILER_OPTIONS=$_HIPE_OPTIONS mix compile
+
+set +e
