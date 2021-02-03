@@ -3,13 +3,14 @@ defmodule Basilisk do
   Documentation for Basilisk.
   """
 
-  @server_name Application.get_env(:basilisk, :server_name, "My Basilisk Server")
   @version Mix.Project.config()[:version]
 
+  @spec server_name() :: String.t()
   def server_name do
-    @server_name
+    Application.get_env(:basilisk, :server_name, "My Basilisk Server")
   end
 
+  @spec version() :: String.t()
   def version do
     @version
   end

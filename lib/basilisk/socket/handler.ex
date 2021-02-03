@@ -2,9 +2,10 @@ defmodule Basilisk.Socket.Handler do
   @moduledoc """
   A worker for decoding, validating, and executing client commands
   """
-  require Logger
-  use GenServer
   @behaviour :ranch_protocol
+
+  use GenServer
+  require Logger
 
   @protocol_version 15
 
@@ -29,15 +30,17 @@ defmodule Basilisk.Socket.Handler do
     )
 
     server_id =
-      Event_ServerIdentification.new(
+      EventServerIdentification.new(
         server_name: Basilisk.server_name(),
         server_version: "basilisk-v#{Basilisk.version()}",
         protocol_version: @protocol_version
       )
-      |> Event_ServerIdentification.encode()
+
+    server_id_enc = EventServerIdentification.encode(server_id)
 
     _ = Logger.debug(inspect(server_id))
-    _ = Logger.debug(inspect(Event_ServerIdentification.decode(server_id)))
+    _ = Logger.debug(inspect(server_id_enc))
+    _ = Logger.debug(inspect(EventServerIdentification.decode(server_id_enc)))
 
     transport.send(socket, server_id)
     {:noreply, state}
@@ -45,7 +48,7 @@ defmodule Basilisk.Socket.Handler do
 
   @impl GenServer
   def handle_info({:tcp, socket, data}, state = %{socket: socket, transport: transport}) do
-    command = Protobuf.decode(data)
+    command = CommandContainer.decode(data)
     _ = Logger.warn(inspect(data))
     _ = Logger.warn(inspect(command))
     # transport.send(socket, data)
